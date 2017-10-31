@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	.container
+		.panel
+			.panel-heading Current user
+			.panel-body
+				ul
+					li id: #{curUser.id}
+					li display_name: #{curUser.display_name}
+					li email: #{curUser.email}
+					li password: #{curUser.password}
+					li auth_id: #{curUser.auth_id}
+					li token: #{curUser.token}
+
+
+				
+
+		h3.page-heading Users
+		ol.list
+			each user in users
+				li.row
+					span.col-lg-3 #{user.id}
+					span.col-lg-2 #{user.display_name}
+					span.col-lg-1 &nbsp;
+					span.col-lg-2 #{user.email}
+					span.col-lg-3 #{user.password}
+		hr

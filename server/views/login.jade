@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	.container
+		.row
+			.col-lg-4
+				span &nbsp;
+			.col-lg-4
+				.page-heading
+					.h3 Login
+
+				.mesages #{errMessage}
+
+				form.form(action="/login" method="post")
+					.form-group
+						label.label Email
+						input.form-control(type="email" name="email" placeholder="Enter email")
+					.form-group
+						label Password
+						input.form-control(type="password" name="password" placeholder="Enter password")
+					.form-group
+						button.btn.btn-primary(type="submit" ) Login
+
+						a.btn.btn-primary.ml-3(href="/fblogin")
+							i.fa.fa-facebook.mr-3(style="font-size: 25px; line-height: 25px;")
+							i Login with facebook

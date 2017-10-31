@@ -12,7 +12,7 @@ module.exports = function(grunt){
 				livereload: true
 			},
 			express:{
-				files: ['./app.js', './server/routes/*.js'],
+				files: ['./app.js', './server/routes/*.js', './server/config/*.js'],
 				tasks:['express:dev'],
 				options:{
 					spawn: false
