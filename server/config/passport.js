@@ -24,10 +24,12 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new localStrategy({
-		usernameField: 'email'
+		usernameField: 'email',
+		passwordField: 'password',
+		passReqToCallback: true
 	},
 
-	function(username, password, done){
+	function(req, username, password, done){
 	//console.log('user: ' + username + ', password: ' + password);
 	var columns = ['id', 'display_name', 'email', 'auth_id', 'token'];
 
@@ -38,7 +40,9 @@ passport.use(new localStrategy({
 				return done(error);
 			}
 			if(results.length === 0){
-				return done(null, false, {message: 'Incorrect username or password'});
+
+
+				return done(null, false, req.flash('info', 'Incorrect username or password(from server)'));
 			}
 			return done(null, results[0]);
 		});

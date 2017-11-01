@@ -17,7 +17,7 @@ router.get('/logout', function(req, res, next){
 	res.redirect('/');
 });
 router.post('/login', passport.authenticate('local', {
-	successRedirect: '/users', failureRedirect: '/login', failureFlash: 'Invalid username or password'}));
+	successRedirect: '/users', failureRedirect: '/login', failureFlash: true}));
 
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Express' });
